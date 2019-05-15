@@ -45,7 +45,7 @@ public class LoginPage extends ParentPage {
     public void clickButtonVhod() {
         try {
             webDriver.findElement(By.tagName("button")).click();
-            logger.info("Clock Button.");
+            logger.info("Click Button.");
         } catch (Exception e) {
             logger.error("Cannot work with element.");
             Assert.fail("Cannot work with element.");
