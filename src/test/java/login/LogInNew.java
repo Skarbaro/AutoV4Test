@@ -2,27 +2,34 @@ package login;
 
 import org.junit.Assert;
 import org.junit.Test;
-import pages.LoginPage;
 import parenTest.ParenTest;
 
 public class LogInNew extends ParenTest {
     @Test
     public void validLogin(){
-        loginPage.OpenLoginPage();
+        loginPage.openLoginPage();
         loginPage.enterLogin("Student");
         loginPage.enterPassWord("909090");
         loginPage.clickButtonVhod();
 
-        Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent());  // valid
+        Assert.assertTrue("Avatar is not present", homePage.isAvatarDisplayed());  // valid
     }
 
     @Test
     public void noValidLogin(){
-        loginPage.OpenLoginPage();
+        loginPage.openLoginPage();
         loginPage.enterLogin("Students");
         loginPage.enterPassWord("9090090");
         loginPage.clickButtonVhod();
 
-        Assert.assertFalse("Avatar is not present", homePage.isAvatarPresent()); // not valid
+        Assert.assertTrue("Button is not present", loginPage.isButtonVhodDisplayed());
+//        Assert.assertFalse("Avatar is not present", homePage.isAvatarDisplayed()); // not valid
     }
+
+    @Test
+    public void validLogin2(){
+        loginPage.validLoginInToApp();
+        Assert.assertTrue("Avatar is not present", homePage.isAvatarDisplayed());  // valid
+    }
+
 }

@@ -8,19 +8,21 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
     @FindBy(name = "_username")
-    WebElement inputLogin;
+    private WebElement inputLogin;
 
     @FindBy(id = "password")
-    WebElement inputPassWord;
+    private WebElement inputPassWord;
 
     @FindBy(tagName = "button")
-    WebElement buttonVhod;
+    private WebElement buttonVhod;
+
+    public HomePage homePage = new HomePage(webDriver);
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
-    public void OpenLoginPage(){
+    public void openLoginPage(){
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
             logger.info("Login page was opened");
@@ -57,5 +59,20 @@ public class LoginPage extends ParentPage {
 //        }
     }
 
+    public boolean isButtonVhodDisplayed(){
+        return actionsWithOurElements.isElementDisplayed(buttonVhod);
+    }
+
+    public void loginInToApp(String login, String passWord){
+        openLoginPage();
+        enterLogin(login);
+        enterPassWord(passWord);
+        clickButtonVhod();
+    }
+
+    public void validLoginInToApp(){
+        loginInToApp("Student", "909090");
+        homePage.isAvatarDisplayed();
+    }
 
 }
