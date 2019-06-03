@@ -52,7 +52,15 @@ public class SparePage extends ParentPage {
         }
     }
 
+    private boolean isSpareInList(String spareName) {
+        return actionsWithOurElements.isElementDisplayed(getSpareWithName(spareName));
+    }
+
     private void clickOnSpare(String spareName) {
-        actionsWithOurElements.clickOnElement();
+        actionsWithOurElements.clickOnElement(getSpareWithName(spareName));
+    }
+
+    private WebElement getSpareWithName(String spareName) {
+        return webDriver.findElement(By.xpath(".//*[text()='" + spareName + "']"));         //dynamic locator
     }
 }
