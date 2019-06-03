@@ -45,6 +45,7 @@ public class SparePage extends ParentPage {
             clickOnSpare(spareName);
             editSparePage.clickButtonDelete();
             counter++;
+            logger.info("Yes!!!");
             if (counter > 100){
                 Assert.fail("There are more that 100 spare in list or deleting" +
                         " does not work, so test does not go further");
@@ -53,7 +54,7 @@ public class SparePage extends ParentPage {
     }
 
     private boolean isSpareInList(String spareName) {
-        return actionsWithOurElements.isElementDisplayed(getSpareWithName(spareName));
+        return actionsWithOurElements.isElementDisplayed(By.xpath(".//*[text()='" + spareName + "']"));
     }
 
     private void clickOnSpare(String spareName) {
