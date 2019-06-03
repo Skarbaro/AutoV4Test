@@ -13,7 +13,8 @@ public class AddNewSpare extends ParenTest {
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpare();
         sparePage.checkUrl();
-        sparePage.checkAndDeleteSpare(spareName);
+//        sparePage.checkAndDeleteSpare(spareName);
+        sparePage.deletingSpareUntilPresent(spareName);
         sparePage.clickOnAddButton();
         editSparePage.enterSpareNameInToInput(spareName);
         editSparePage.selectSpareTypeInDD("Механика");
