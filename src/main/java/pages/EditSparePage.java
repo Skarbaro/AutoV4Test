@@ -13,6 +13,7 @@ public class EditSparePage extends ParentPage{
 
     @FindBy(name = "delete")
     private WebElement buttonDelete;
+
     @FindBy(name = "add")
     private WebElement buttonCreate;
 
@@ -21,7 +22,7 @@ public class EditSparePage extends ParentPage{
     }
 
     public boolean checkSpareNameInInput (String spareName){        // Получить текст и сравнить с тем который ищем
-        return spareNameInput.getText().equals(spareName);
+        return spareNameInput.getAttribute("value").equals(spareName);
     }
 
     public void clickButtonDelete(){
