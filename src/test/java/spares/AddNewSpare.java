@@ -1,5 +1,7 @@
 package spares;
 
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import parenTest.ParenTest;
 
@@ -19,6 +21,13 @@ public class AddNewSpare extends ParenTest {
         editSparePage.enterSpareNameInToInput(spareName);
         editSparePage.selectSpareTypeInDD("Механика");
         editSparePage.clickButtonCreate();
+
+        checkExpectedResult("Spare was not added", sparePage.isSpareInList(spareName));
+    }
+
+    @After
+    public void spareDeleting(){
+        sparePage.deletingSpareUntilPresent(spareName);
     }
 
 }
