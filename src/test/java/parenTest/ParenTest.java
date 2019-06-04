@@ -1,6 +1,7 @@
 package parenTest;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,5 +38,13 @@ public class ParenTest {
     @After
     public void tearDown(){
         webDriver.quit();
+    }
+
+    public void checkExpectedResult(String messange, boolean actualResult, boolean expectedResult){
+        Assert.assertEquals(messange, expectedResult, actualResult);
+    }
+
+    public void checkExpectedResult(String messange, boolean actualResult){
+        checkExpectedResult(messange, actualResult, true);
     }
 }
