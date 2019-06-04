@@ -70,4 +70,22 @@ public class ActionsWithOurElements {
             return false;
         }
     }
+
+    public void setNeededStatetToChechBox(WebElement element, String state){
+        boolean checkState = state.equals("check");
+        boolean unCheckState = state.equals("uncheck");
+
+        if (checkState || unCheckState){
+            if (element.isSelected() && checkState){
+                logger.info("Checkbox is already checked");
+            } else if (!element.isSelected() && checkState){
+                clickOnElement(element);
+            } else if () {
+
+            }
+        } else {
+            logger.error("State should be check or uncheck.");
+            Assert.fail("State should be check or uncheck.");
+        }
+    }
 }
