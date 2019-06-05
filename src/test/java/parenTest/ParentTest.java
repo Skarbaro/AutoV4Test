@@ -13,7 +13,7 @@ import pages.SparePage;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class ParenTest {
+public class ParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
