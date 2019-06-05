@@ -2,9 +2,9 @@ package login;
 
 import org.junit.Assert;
 import org.junit.Test;
-import parenTest.ParenTest;
+import parenTest.ParentTest;
 
-public class LogInNew extends ParenTest {
+public class LogInNew extends ParentTest {
     @Test
     public void validLogin(){
         loginPage.openLoginPage();

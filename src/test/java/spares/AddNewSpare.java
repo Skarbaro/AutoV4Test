@@ -1,11 +1,10 @@
 package spares;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
-import parenTest.ParenTest;
+import parenTest.ParentTest;
 
-public class AddNewSpare extends ParenTest {
+public class AddNewSpare extends ParentTest {
     String spareName = "RomaniukSpare";
 
     @Test
