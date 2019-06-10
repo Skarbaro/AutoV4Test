@@ -12,6 +12,8 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.CellType;
+//import org.apache.poi.ss.usermodel.CellType;
 
 /*
  *  Class that provides methods for extracting data from Excel tables.
@@ -39,7 +41,7 @@ public class ExcelDriver {
 		for (int k = 2; k < (dataSize + 2); k++) {
 			HSSFCell keyCell = sheet.getRow(k).getCell(0);
 			HSSFCell valueCell = sheet.getRow(k).getCell(columnNumber);
-			valueCell.setCellType(HSSFCell.CELL_TYPE_STRING);
+			valueCell.setCellType(CellType.STRING);
 			testData.put(keyCell.getStringCellValue(), valueCell.getStringCellValue());
 		}
 
@@ -69,7 +71,7 @@ public class ExcelDriver {
         for (int k = 1; k < (dataSize + 1); k++) {
             HSSFCell keyCell = sheet.getRow(k).getCell(0);
             HSSFCell valueCell = sheet.getRow(k).getCell(1);
-            valueCell.setCellType(HSSFCell.CELL_TYPE_STRING);
+            valueCell.setCellType(CellType.STRING);
             testData.put(keyCell.getStringCellValue(), valueCell.getStringCellValue());
         }
 
@@ -100,7 +102,7 @@ public class ExcelDriver {
 		for (int k = 0; k < (dataSize); k++) {
 			HSSFCell keyCell = sheet.getRow(2).getCell(k);
 			HSSFCell valueCell = sheet.getRow(3).getCell(k);
-			valueCell.setCellType(HSSFCell.CELL_TYPE_STRING);
+			valueCell.setCellType(CellType.STRING);
 			testData.put(keyCell.getStringCellValue(), valueCell.getStringCellValue());
 		}
 
