@@ -34,11 +34,11 @@ public class UnValidLoginWithParametersFromExcel extends ParentTest {
     @Parameterized.Parameters(name = "Parameters are {0} and {1}")
     public static Collection testData() throws IOException {
         InputStream spreadsheet = new FileInputStream(configProperties.DATA_FILE_PATH() + "testDataSuit.xls");
-        return new SpreadsheetData(spreadsheet, "InvalidLogOn").getData();
+        return new SpreadsheetData(spreadsheet, "invalidLogOn").getData();
     }
 
     @Test
-    public void unValidLoginWithParameters() {
+    public void unValidLoginWithParametersFromExcel() {
         loginPage.loginInToApp(login, pass);
         checkExpectedResult("Avatar should not be present", homePage.isAvatarDisplayed(), false);
     }

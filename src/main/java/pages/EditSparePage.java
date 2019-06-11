@@ -15,7 +15,7 @@ public class EditSparePage extends ParentPage{
     private WebElement buttonDelete;
 
     @FindBy(name = "add")
-    private WebElement buttonCreate;
+    private WebElement buttonAdd;
 
     public EditSparePage(WebDriver webDriver){
         super (webDriver, "/dictionary/spares/edit");
@@ -34,7 +34,7 @@ public class EditSparePage extends ParentPage{
     }
 
     public void clickButtonCreate() {
-        actionsWithOurElements.clickOnElement(buttonCreate);
+        actionsWithOurElements.clickOnElement(buttonAdd);
     }
 
     public void selectSpareTypeInDD(String spareType) {
