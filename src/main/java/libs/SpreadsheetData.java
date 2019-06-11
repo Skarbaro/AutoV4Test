@@ -12,27 +12,27 @@ import java.util.List;
 
 public class SpreadsheetData {
 
-    private transient Collection<Object[]> data = null;
+    private transient Collection<Object> data;
 
     public SpreadsheetData(final InputStream excelInputStream, final String sheetName) throws IOException {
         this.data = loadFromSpreadsheet(excelInputStream, sheetName);
     }
 
-    public Collection<Object[]> getData() {
+    public Collection<Object> getData() {
         return data;
     }
 
-    private Collection<Object[]> loadFromSpreadsheet(final InputStream excelFile, final String sheetName)
+    private Collection<Object> loadFromSpreadsheet(final InputStream excelFile, final String sheetName)
             throws IOException {
         HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
 
-        data = new ArrayList<Object[]>();
+        data = new ArrayList<>();
 
         Sheet sheet = workbook.getSheet(sheetName);
 
         int numberOfColumns = countNonEmptyColumns(sheet);
-        List<Object[]> rows = new ArrayList<Object[]>();
-        List<Object> rowData = new ArrayList<Object>();
+        List<Object> rows = new ArrayList<>();
+        List<Object> rowData = new ArrayList<>();
 
         for (Row row : sheet) {
             if (isEmpty(row)) {
@@ -85,7 +85,7 @@ public class SpreadsheetData {
             cellValue = getNumericCellValue(cell);
         } else if (cell.getCellType() == CellType.BOOLEAN) {
             cellValue = cell.getBooleanCellValue();
-        } else if (cell.getCellType()  ==CellType.FORMULA) {
+        } else if (cell.getCellType() == CellType.FORMULA) {
             cellValue = evaluateCellFormula(workbook, cell);
         }
 
