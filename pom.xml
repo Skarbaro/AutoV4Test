@@ -73,6 +73,25 @@
       <artifactId>allure-junit4</artifactId>
       <version>${allure-junit4.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>3.0.0</version>
+      <scope>test</scope>
+    </dependency>
+      <!-- https://mvnrepository.com/artifact/org.json/json -->
+      <dependency>
+          <groupId>org.json</groupId>
+          <artifactId>json</artifactId>
+          <version>20180813</version>
+      </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>3.0.0</version>
+      <scope>compile</scope>
+    </dependency>
 
 
   </dependencies>
