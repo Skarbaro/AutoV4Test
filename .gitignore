@@ -16,3 +16,4 @@ target/site
 *.iws
 HW5.txt
 .log
+.allure

@@ -6,6 +6,7 @@ import org.junit.Test;
 import parenTest.ParentTest;
 
 public class LogInNew extends ParentTest {
+
     @Test
     public void validLogin(){
         loginPage.openLoginPage();
@@ -13,24 +14,28 @@ public class LogInNew extends ParentTest {
         loginPage.enterPassWord("909090");
         loginPage.clickButtonVhod();
 
-        Assert.assertTrue("Avatar is not present", homePage.isAvatarDisplayed());  // valid
+        checkExpectedResult("Avatar is not present", homePage.isAvatarDisplayed());
+//        Assert.assertTrue("Avatar is not present", homePage.isAvatarDisplayed());  // valid
     }
 
     @Test
     public void noValidLogin(){
         loginPage.openLoginPage();
-        loginPage.enterLogin("Students");
+        loginPage.enterLogin("Student");
         loginPage.enterPassWord("9090090");
         loginPage.clickButtonVhod();
 
-        Assert.assertTrue("Button is not present", loginPage.isButtonVhodDisplayed());
+        checkExpectedResult("Button is not present", loginPage.isButtonVhodDisplayed(),false);
+//        Assert.assertTrue("Button is not present", loginPage.isButtonVhodDisplayed());
 //        Assert.assertFalse("Avatar is not present", homePage.isAvatarDisplayed()); // not valid
     }
 
     @Test
+    @Ignore
     public void validLogin2(){
         loginPage.validLoginInToApp();
-        Assert.assertTrue("Avatar is not present", homePage.isAvatarDisplayed());  // valid
+        checkExpectedResult("Avatar is not present", homePage.isAvatarDisplayed());
+//        Assert.assertTrue("Avatar is not present", homePage.isAvatarDisplayed());  // valid
     }
 
 }
