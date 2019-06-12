@@ -164,7 +164,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven-surefire-plugin.version}</version>
           <configuration>
-            <testFailureIgnore>false</testFailureIgnore>
+            <testFailureIgnore>true</testFailureIgnore>
             <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
             <properties>
               <property>
@@ -176,6 +176,10 @@
               <property>
                 <name>allure.results.directory</name>
                 <value>${project.build.directory}/allure-results</value>
+              </property>
+              <property>
+                <name>allure.link.issue.pattern</name>
+                <value>https://example.org/issue/{}</value>
               </property>
             </systemProperties>
           </configuration>
