@@ -1,0 +1,10 @@
+{
+    "FirstName": "value",
+    "LastName": "value",
+    "UserName": "value",
+    "PassWord": "value",
+    "Email": "value"
+}
+
+
+Example body request. json or xml
